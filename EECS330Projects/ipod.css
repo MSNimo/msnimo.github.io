@@ -1,0 +1,185 @@
+/* 
+	Global classes 
+					*/
+body {
+	background-image: url("images/iphoneOL.jpg");
+	background-repeat: no-repeat;
+	font-family: Helvetica, sans-serif;
+}
+
+
+#screen {
+	height: 530px;
+	width: 300px;
+	margin: 105px 23px;
+}
+
+.head-bar { /*Styles Header on albums.html*/
+    color: darkslategray;
+	background-color: aliceblue;
+    text-align: center;
+    text-shadow: 2px 2px #aaaaaa;
+}
+
+.head-bar-songs { /*Styles Header on songs.html*/
+    color: darkslategray;
+	background-color: aliceblue;
+    max-height: 10%
+}
+
+.back-button { /*Styles button on song.html*/
+	max-width: 15%;
+    margin: 1%; 
+}
+
+.albumcoversongs {  /*Styles album image on songs.html*/
+    
+    max-width: 55%;
+    margin: 2% 1% 3% 3%; 
+    float: left;
+    
+}
+
+.song-info {   /*Styles song info on songs.html*/
+    
+    text-align: center;
+    padding: 2% 1%; 
+    margin: 0;  
+}
+
+ol {          /*Styles list on songs.html*/
+    
+    margin-left: -6%;   
+    max-width: 90%; 
+}
+
+li {         /*Styles list elements on songs.html*/
+    
+    list-style-position: outside;
+    border: 1px solid blue;
+    margin-bottom: 1%;
+    padding: 1%;
+    font-size: 0.7em;
+    text-align: center;
+}
+/* 
+	Albums 
+			*/
+
+.albums-album-wrapper {     /*Styles album gallery and display on albums.html*/
+    
+    margin-top: 10%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    float:left;
+    max-width: 50%;
+}
+
+.albums-album-art {     
+    
+}
+
+.albums-album-name {      /*Styles album names on albums.html*/
+ 
+    font-size: 0.6em;
+    margin: 0;
+    color: black;
+  
+}
+
+.albums-album-name>h2 { /*Styles album names on albums.html*/
+    
+    margin-bottom: 0;
+}
+
+.albums-artist-name {  /*Styles artist names on albums.html*/
+    
+    font-size: 0.8em;
+    color: black;
+}
+    
+.albums-artist-name >h3 { /*Styles artist names on albums.html*/
+    
+    margin-top: 0;   
+}
+
+.albumcover {             /*Styles album art on albums.html*/
+ 
+    max-width: 80%;
+}
+
+/* 
+	Songs 
+			*/
+.songs-info-wrapper {
+	
+}
+
+.songs-album-art {
+	
+}
+
+.songs-album-name {
+	
+
+}
+
+.songs-artist-name {
+	
+}
+
+.songs-text-info {
+	
+}
+
+.songs-album-year {
+	
+}
+
+.songs-list {
+	
+}
+
+/* 
+	Player 
+			*/
+.player-album-art {
+	
+}
+
+.player-song-info {
+	
+}
+
+#player-song-name {
+	
+}
+
+.volume-bar {
+	
+}
+
+.volume-level {
+	
+}
+
+.volume-rocker {
+	
+}
+
+.player-controls{
+	
+}
+
+#player-time {
+	
+}
+
+#time-elapsed {
+	
+}
+
+#time-total{
+	
+}
