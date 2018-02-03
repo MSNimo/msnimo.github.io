@@ -49,7 +49,7 @@ a {
 
 .song-info {   /*Styles song info on songs.html*/
     
-    text-align: center;
+    text-align: left;
     padding: 2% 1%; 
     margin: 0;  
 }
