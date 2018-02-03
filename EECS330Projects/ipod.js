@@ -1,83 +1,89 @@
 // Create your global variables below:
 var tracklist = ["Rolling Down the Hill", "Bigger Than Me", "Don't Look Back", "Moving On", "I Just Want the Truth, Baby", "Give me a Smile", "Caiti", "Metaphor", "Dirty Money", "Volcano", "Green", "Finding Beauty in a Broken World"];
 var volLevels = [];
-var currentVolLevel = 2;
-var currentTrack = 0;
-var currentTime;
+var currentTrack = 0;           // Current Track 
+var currentTime;                // Current Time
+var currentVolLevel = 2;        // Current volume level
 
 function init() {
-    // Your code goes here
-    for(var i = 0; i<=5; i++){
+
+    for(var i = 0; i<=5; i++){      //Populate Volume Array
         volLevels[i]= document.getElementById("vl" + i);
     }
-    for(var i = 0; i<=currentVolLevel;i++){
+    for(var i = 0; i<=currentVolLevel;i++){         // Fill Volume Bar
         volLevels[i].className= "volume-bar-filled";
     }
-    document.getElementById("player-song-name").innerHTML = tracklist[currentTrack];
+    document.getElementById("player-song-name").innerHTML = tracklist[currentTrack];                // Set current track
 };
 
 function volUp() {
-    // Your code goes here
-    if(currentVolLevel >= 5){
-        return;
+
+    if(currentVolLevel >= 5){}          // If max volume do nothing
+
+    else {                              // Else increment volume one
+        currentVolLevel++;
+        volLevels[currentVolLevel].className="volume-bar-filled";
     }
-    currentVolLevel++;
-    volLevels[currentVolLevel].className="volume-bar-filled";
 }
 
 function volDown() {
-    // Your code goes here
-    if(currentVolLevel == -1){
-        return;
+    
+    if(currentVolLevel == -1){}         // If min volume do nothing
+    
+    else{                               // Else decrement one
+        volLevels[currentVolLevel].className="volume-bar";
+        currentVolLevel--;
     }
-    volLevels[currentVolLevel].className="volume-bar";
-    currentVolLevel--;
 }
 
 function switchPlay() {
-    // Your code goes here
-    var icon = document.getElementById("toggle").innerHTML;
-    if(icon == "play_arrow"){
+    
+    var icon = document.getElementById("toggle").innerHTML; // record current icon
+    if(icon == "play_arrow"){                               // If paused
         document.getElementById("toggle").innerHTML = "pause";
-        currentTime = setInterval(function(){
+        currentTime = setInterval(function(){               // Play
             if(document.getElementById("track-timer").value == 180){
                 nextSong();
                 return;
             }
-            document.getElementById("track-timer").value++;
+            document.getElementById("track-timer").value++;     // Set time
             document.getElementById("time-elapsed").innerHTML = secondsToMs(document.getElementById("track-timer").value);
         }, 1000);
     }
-    if(icon == "pause") {
-        clearInterval(currentTime);
+    if(icon == "pause") {                                   // If playing
+        clearInterval(currentTime);                         // Pause
         document.getElementById("toggle").innerHTML = "play_arrow";
     }
 
 }
 
-function nextSong() {
-    // Your code goes here
-    if(currentTrack == tracklist.length-1){
-        currentTrack = 0;
-
+function nextSong() {                                      
+    
+    if(currentTrack == tracklist.length-1){ // If last track
+        currentTrack = 0;                   // Loop to first
     }
-    else{
+    
+    else{                                   // Else increment track      
         currentTrack++;
     }
-    document.getElementById("player-song-name").innerHTML = tracklist[currentTrack];
+    document.getElementById("player-song-name").innerHTML = tracklist[currentTrack];                  // Set new track
 
-    document.getElementById("track-timer").value=0;
+    document.getElementById("track-timer").value=0; // Set time to 0
     document.getElementById("time-elapsed").innerHTML = secondsToMs(0);
 }
 
 function prevSong() {
-    // Your code goes here
-    if(currentTrack == 0){
-        return;
+    
+    if(currentTrack == 0){                    // If first track
+        currentTrack = tracklist.length-1;    // Loop to last
     }
-    currentTrack--;
-    document.getElementById("player-song-name").innerHTML = tracklist[currentTrack];
-    document.getElementById("track-timer").value=0;
+    
+    else {                                    // Else decrement track
+        currentTrack--;
+    }
+    document.getElementById("player-song-name").innerHTML = tracklist[currentTrack];                    // Set new track
+    
+    document.getElementById("track-timer").value=0;     // Set time to 0
     document.getElementById("time-elapsed").innerHTML = secondsToMs(0);
 }
 
