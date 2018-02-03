@@ -1,0 +1,52 @@
+<html>
+    <header>
+        <title>Music Player</title>
+        <link rel="stylesheet" type="text/css" href="ipod.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+              rel="stylesheet">
+    </header>
+    <body>
+        <div id="screen">
+            <div class="head-bar">
+                <a  href = "songs.html"><div class="back-button"><i class="material-icons">arrow_back</i></div></a>
+            </div>
+            <div class="player-album-art-holder">
+                <img class="player-album-art" src="images/imgladinnotme.jpg" alt="Currents Album Cover"/>
+            </div>
+            <div id="player-controls">
+                <div>
+                    <p id = "player-song-name">Rolling Down the Hill</p>
+                    <p id = "player-song-artist"><em>I'm Glad I'm Not Me</em> - Born Cages</p>
+                </div>
+                <div id = "time-tracker">
+                <input id = "track-timer" type="range" value ="0" min = "0" max="180">
+                <div>
+                    <div id = "time-elapsed">0:00</div>
+                    <div id = "player-time">3:00</div>
+                </div>
+                </div>
+                <div>
+                    <button class = "track-buttons" onclick="prevSong()"><i class="material-icons">skip_previous</i></button>
+                    <button class = "track-buttons" onclick="switchPlay()"><i class="material-icons" id = "toggle" >play_arrow</i></button>
+                    <button class = "track-buttons" onclick="nextSong()"><i class="material-icons">skip_next</i></button>
+                </div>
+                <div class = "volume-level">
+                    <i class="material-icons">volume_down</i>
+                    <div class = "volume-bar" id="vl0"></div>
+                    <div class = "volume-bar" id="vl1"></div>
+                    <div class = "volume-bar" id="vl2"></div>
+                    <div class = "volume-bar" id="vl3"></div>
+                    <div class = "volume-bar" id="vl4"></div>
+                    <div class = "volume-bar" id="vl5"></div>
+                </div>
+                <button id= "volume-down" onclick="volDown()"><b>&mdash;</b></button>
+                <button id= "volume-up" onclick="volUp()"><b>+</b></button>
+
+            </div>
+        </div>
+        <script src="ipod.js"></script>
+    </body>
+</html>
+<!-- 
+* bg iphone img is 363x762px
+* iphone 'screen' is apprx 300x530 -->
