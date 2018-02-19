@@ -1,0 +1,280 @@
+html {
+
+    min-width: 500px;
+}
+body {
+
+    background-color: #fbfcfe; !important
+    font-family: helvetica;
+}
+
+/***************
+HOME PAGE
+***************/
+#content {
+
+    padding-top: 5%;
+}
+
+#content, #footer {
+    text-align: center;
+}
+
+#content-buttons {
+    padding: 5%;
+    display: inline-block;
+}
+
+.btn-space {
+    margin: 5px;
+}
+
+.title {
+
+    font-size: 500%;
+}
+.subtitle {
+
+    font-size: 200%;
+    font-style: italic;
+}
+
+#left-title {
+
+    color: blue;
+}
+
+#right-title {
+
+    color: red;
+}
+
+/**********************
+LEARN MORE PAGE
+**********************/
+
+.navbar {
+    position:fixed;
+    background-color: #fbfcfe;
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+
+
+    width: 100%;
+}
+
+.navbar-brand {
+    font-size: 200%;
+}
+
+.nav-container {
+
+    width: 95%;
+}
+
+#content-learnmore {
+
+    padding-top: 2%;
+    text-align: center;
+}
+
+.band {
+    width: 60%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 5% 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+}
+
+@media only screen and (min-width: 500px) {
+    .band {
+        grid-template-columns: 1fr 1fr;
+    }  
+}
+
+@media only screen and (min-width: 850px) {
+    .band {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 150%;
+    margin: 2% 0;
+}
+
+.card-subtitle {
+    color: grey;
+    font-size: 1.5em;
+}   
+
+.card-btn {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.card-icon {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+.tight-p {
+
+    margin: 0;
+}
+
+.party-text {
+
+    font-size: 1.25em;
+}
+.card-btn:hover, a:hover {
+    opacity: 0.7;
+}
+
+/**********************
+CANDIDATE PAGES
+**********************/
+
+.content-candidate {
+
+    padding-top: 4%;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+}
+
+.content-subcandidate {
+
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 60%;
+    margin: auto;    
+}
+
+.candidate-info {
+
+    text-align:center;
+    margin: auto;
+    padding-bottom: 2%;
+}
+
+.candidate-img {
+
+    width: 40%;
+}
+
+.candidate-img img{
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 25px;
+}
+
+.candidate-twitter {
+
+    width: 50%;
+    margin-left: 5%;
+}
+
+@media only screen and (max-width: 490px) {
+
+    .nav-container {
+        margin-left: 6%;
+    }
+}
+@media only screen and (max-width: 795px) {
+    .title {
+
+        padding-top: 10%;
+        font-size: 250%;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .candidate-info {
+
+        text-align:center;
+        margin: auto;
+        padding-bottom: 2%;
+    }
+
+    .candidate-img {
+
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 1%;
+    }
+
+    .candidate-twitter {
+
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+
+    .candidate-info {
+
+        padding: 2%;
+    }
+
+    .candidate-img {
+
+        float: left;
+    }
+    .candidate-img img{
+
+        float:left;
+    }
+
+    .candidate-twitter {
+
+        float: left;
+    }
+}
+
+.candidate-twitter a {
+
+    max-width: 100%;
+    max-height: 100%;
+    clear:right;
+}
+
+#stance {
+
+    width: 60%;
+    margin: auto;
+}
+
+iframe {
+    width: 100%;
+    height: 480px;
+}
+
+@media only screen and (max-width: 1000px) {
+    iframe {
+        height: 360px;
+    }
+}
