@@ -1,17 +1,17 @@
 function learn_more() {
-     location.href = "../learnmore.html";
+     location.href = "/EECS330Projects/ComputerPrototype/learnmore.html";
 } 
 
 function duckworth_go() {
-    location.href = "../duckworth.html";
+    location.href = "/EECS330Projects/ComputerPrototype/duckworth.html";
 }
 
 function kirk_go() {
-    location.href = "../learnmore.html";
+    location.href = "/EECS330Projects/ComputerPrototype/learnmore.html";
 }
 
 function schakowsky_go() {
-    location.href = "../learnmore.html";
+    location.href = "/EECS330Projects/ComputerPrototype/learnmore.html";
 }
 
 function lasonde_go() {
