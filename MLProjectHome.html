@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Michael Benimovich</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>     
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 10px">
+            <div class="container">
+
+            </div>
+            <a class="navbar-brand" href="#">The AI Artist</a>
+            <ul style="padding-top: 6px;" class = "nav nav-pills">
+
+                <li><a href="#MLProjectHome.html" class="active">Abstract</a></li>
+                <li><a href="data.html">Data</a></li>
+                <li><a href="class.html">Classifying Genres</a></li>
+                <li><a href="gen.html">Generating Song Lyrics</a></li>
+            </ul>
+
+        </nav>
+        <h1 style = "width: 80%; margin:20px auto 5% auto; text-align: center;"><b>Classification and Creation From Modeling Song Lyrics</b></h1>
+        <table class="main" style = "width: 50%; margin:auto; border: 1px; border-color: black;">
+            <tr>
+                <td>Sabreen Ali</td>
+                <td style = "text-align: right"></td>
+            </tr>
+            <tr>
+                <td>Michael Benimovich</td>
+                <td style = "text-align: right">michaelbenimovich2019@u.northwestern.edu</td>
+            </tr>
+            <tr>
+                <td>Stacey Chao</td>
+                <td style = "text-align: right">staceychao2019@u.northwestern.edu</td>
+            </tr>
+            <tr>
+                <td>Charlie Collar</td>
+                <td style = "text-align: right">collar@u.northwestern.edu</td>
+            </tr>
+        </table>
+        <div class="main" style = "width: 80%; margin:auto; margin-top: 3%; padding-bottom: 20px;">
+
+            <p>&#09;It is a common judgement on genres of music that their lyrics are all the same.  But is that really the case? Given just lyrics to a song, would it be possible to train a model to identify which genre it belongs to?  This task can be important for any sort of large database of lyrics, whether on a lyrics website or an online music store, to quickly identify the genre of song based on lyrics.  This task could also be used for analyzing how similar genres actually are, based on how difficult it might be to classify songs only on their lyrics.  This task is explored in "Classifying Genres".</p>
+            
+            <img src = "ML_Pictures/accuracy.png" style="width: 400px; height:250px; display: block; margin: 3% auto 1%;">
+            <p style="font-size: 0.75em; font-style: italic; width: 30%; margin:auto;text-align: center;margin-bottom: 2%;">performance of classifier methods on varying dataset sizes</p>
+            
+            <p>&#09;A second task, perhaps more interesting, related to song genre and lyrics is to see the possibilities of generating lyrics based on a model trained on songs of the same genre.  That is, can we synthesize lots of country song lyrics and create a model that gives us quintessential (or cliché) song lyrics?  This task is explored in "Generating Song Lyrics".</p>
+            <br>
+            
+            <p>&#09;This task turned out to be harder than expected; as stated above, we thought it would be pretty easy to classify a song into a genre purely based on lyrics, but this result shows us that the music plays a much more substantive part (and perhaps, the only part) in our determining of genre.  Furthermore, in the task of creating lyrics, temperature was difficult to determine; it was hard to find a balance between chaos and too much repetition, as both can be seen in the results.</p>
+
+        </div>
+        <footer class="footer" style="background-color:whitesmoke; height: 15%; bottom: 0; position: relative; width: 100%; padding-bottom: 1%;">
+            <div class="container">
+                <br>
+                <span class="text-muted" style = "padding-top: 20px">EECS 349: Machine Learning</span>
+                <br>
+                <span class="text-muted">June 2018</span>
+                <br>
+                <span class="text-muted">Sabreen Ali, Michael Benimovich, Stacey Chao, Charlie Collar</span>
+            </div>
+        </footer>
+    </body>
+</html>

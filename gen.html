@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Michael Benimovich</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+            .tg th{font-family:Arial, sans-serif;font-size:12px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+            .tg .tg-baqh{text-align:center;vertical-align:top}
+            .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+        </style>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>     
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 10px">
+            <div class="container">
+
+            </div>
+            <a class="navbar-brand" href="#">The AI Artist</a>
+            <ul style="padding-top: 6px;" class = "nav nav-pills">
+
+                <li><a href="#MLProjectHome.html">Abstract</a></li>
+                <li><a href="data.html">Data</a></li>
+                <li><a href="class.html">Classifying Genres</a></li>
+                <li><a href="gen.html"  class="active">Generating Song Lyrics</a></li>
+            </ul>
+
+        </nav>
+        <h1 style = "width: 80%; margin:20px auto 5% auto; text-align: center;"><b>Generating Song Lyrics</b></h1>
+
+        <div class="main" style = "width: 80%; margin:auto; margin-top: 3%; padding-bottom: 20px;">
+
+            <p>&#09;For the second task of generating our own lyrics of a song given a genre, we used a TensorFlow  Char-RNN, a character level language model using multilayer Recurrent Neural Network. Using the scraped lyrics data, we created one large text file (~600 kb) for each genre that contained a sample of the lyrics from that genre, about 300 songs from each genre. The five genres we chose to run for the project were: country, indie, hip hop, pop, and rock. We then trained a char-rnn on each of the those genres, and once trained, created a sample text of about 1000 words.</p>
+
+            <p>&#09;Each training parameter for all the genres were the same. We used a batch size of 100, 10 epochs to train, and didn’t use a dropout.
+                After training, we then used the models we created to generate a sample set of lyrics for each of the genres. For generating each sample, we set the output length to be 1000 and tried various temperatures. The temperatures that were closer to 1 tended to be less coherent in both vocabulary and grammar, whereas the temperatures that were closer to 0 tended to be coherent but contain a lot of repetition. We found that the most accurate temperature overall, balancing coherency and repetition, was 0.5.</p>
+
+            <p>&#09;Each of the models we created generated the same general results; we had validation perplexities from around 4.5 - 6, and test perplexities which were slightly lower by a margin of 0.5. In general, this meant that our model had higher accuracy on the test data, which meant that our model in general did well on the test sets. The only exception to that was the model we generated for rock; for that model the best validation perplexity was 4.76, while the test perplexity wasa 5.35. This discrepancy could have likely occurred because the random sample of data we used for training did not contain as much variety as the other genres, and therefore the vocabulary distribution was lower. As a result, the accuracy on the training set was lower, leading to a higher perplexity, and leading to a lower quality sample that the other genres. </p>
+            <br>
+        </div>
+
+        <h2 style = "width: 80%; margin:20px auto 5% auto; text-align: center;"><b>Sample Songs Created by Genre</b></h2>
+
+        <table class="tg" style= "margin: 0 auto 1%;">
+            <tr>
+                <td class="tg-c3ow"><span style="font-weight:bold">Sample Country</span><br><br> I'm gone <br><br> Well my heart were was a blue <br><br> He wonder did you feel <br><br> I'm not in at finally come on home <br><br> But the road her round of lust <br><br> Shot about the world <br><br> Then the roor mama ten of life <br><br> How honey you when I'm gone <br><br> The land of your love <br><br> Strangers on the tears and take me up in the rolling called the blue <br><br> But you feel your love with a country song <br><br> I want to close <br><br> I've got to go <br><br> I want to me <br><br> The way your kinged to my soul <br><br> I want to be <br><br> The put your eyes <br><br> The stars and I'm gone <br><br> I've got a had a long that love <br><br> We was looking down the bord of last <br><br> I've got the seed <br><br> I don't really don't you frimedy <br><br> Well my brues about is a million <br><br> how I was a crowd <br><br> And he said <br><br> I could you rusty rolling down the world <br><br> You won't never going outta style <br><br> I want to tell you my family falling driving <br><br> I want to wake you had to tear you <br><br> I was all to so her <br><br> Baby, it's only you don't day <br><br> The world to stand you look <br><br> But I could you rock out <br><br> When I know you don't wan<br><br></td>
+                <td class="tg-baqh"><span style="font-weight:bold">Sample Hip-Hop</span><br><br> I'm so many get you <br><br> And I toush that we see that ould stay <br><br> I can tell by your hot that we say it's a vibe <br><br> It's this 1 thing low we get him <br><br> We can tell me where would I be <br><br> Oh baby, oh <br><br> Oh oh <br><br> Chorus <br><br> It's a vibe, yeah, yeah <br><br> Yeah, that's wanna sit it on my neck <br><br> And we had it <br><br> I am a big booty money <br><br> I can't get dangerous <br><br> I ain't got no bested one of she got me the sing <br><br> Fuck that bitch <br><br> I think it's the parking like Sprister <br><br> Watch out lil bitch <br><br> 'Cause you can't go back <br><br> It's this 1 thing that my dog, that my dog, that my dog, that my dog, that my dog, that my dog <br><br> It's this 1 thing not don't love you <br><br> That my dog, that my dog, that my dog, that I feel good <br><br> I didn't have me that man <br><br> My dance with me <br><br> It's this 1 thing and I ain't got a problem <br><br> What can't was the pates <br><br> You did it feel so good <br><br> Let me do it like me, oh motherfuckin' me <br><br> So won't you dance with me <br><br> And I real chest and gave me <br><br> And I keep it me stay <br><br> We can't want a fuck and the style<br><br><br><br><br></td>
+                <td class="tg-baqh"><span style="font-weight:bold">Sample Indie</span><br><br> I'm the way <br><br> They want to find you <br><br> How would you called&nbsp;&nbsp;<br><br>The stars she was a stars <br><br> And I have alone in the world <br><br> I will save me and the best <br><br> I can't let that I was the s<br><br>I can tell in the wall <br><br> I<br><br>I want to be and the storms <br><br> I wish i have a child <br><br> If there another sun <br><br> What is though it <br><br> And so long time that you make me <br><br> It can you are gonna be the light <br><br> I into an every heart and the first time <br><br> I will never know <br><br> I have seen the light <br><br> I have always feel <br><br> So long in the street, <br><br> I can tell you <br><br> I'm waiting out of the sun <br><br> In the sea of love <br><br> I can't get out of the streets <br><br> I will gave a blink <br><br> And <br><br>Can I saw behind <br><br> That I go thinking that I can save the one with a bells <br><br> I was a song hard to say <br><br> As I want to be the people on the way <br><br> I am a part of my friends <br><br> When you're a vicion <br><br> I will gat something that you want <br><br> I'm gonna stay to the rain <br><br> Without my hand and window out on the feeling <br><br> Down and the curting that I was trying <br><br> I can't let them<br><br><br><br><br><br></td>
+            </tr>
+            <tr>
+                <td class="tg-baqh"><span style="font-weight:bold">Sample Pop</span><br><br> I'm and <br><br> I know why you do it to keep me <br><br> I wanna know that you feel you <br><br> I like it <br><br> When you're loving <br><br> When you're the one <br><br> I don't care <br><br> He world the waiting <br><br> I got to me <br><br> I say I'm the one that would be there <br><br> I'm so nold on there with me <br><br> I wanna know that I got a flae <br><br> I've been want is she sturs when we do it, say <br><br> Don't Don't Don't Don't <br><br> Don't Don't Don't Don't Don't <br><br> Don't Don't Don't Don't <br><br> Don't Don't Don't Don't Don't <br><br> Don't care what you do you see <br><br> I want you do to get home <br><br> I got to be back <br><br> I don't go <br><br> and we were up! <br><br> I know why you do you feel <br><br> Why you do it, call <br><br> I don't care what you do <br><br> I'll be by your sipp <br><br> I just calling you <br><br> You gotta get on the world <br><br> How you stop hard, I can't believe to parlise <br><br> The first time <br><br> I wanna be your say <br><br> I won't turn you play <br><br> Like karate <br><br> Like karate <br><br> All I wanna too dream <br><br> It's to me walking can be the rire <br><br> the way you do <br><br> Why you do the love that <br><br> I got to me <br><br> I can't like there way <br><br> I say<br></td>
+                <td class="tg-baqh"></td>
+                <td class="tg-baqh"><span style="font-weight:bold">Sample Rock</span><br><br> I'm sourone <br><br> L.A. progling out <br><br> You know <br><br> You're a party <br><br> Sometimes I wanna be alone <br><br> The word the word <br><br> If I can a tramming with my stacker <br><br> Well, I fall you know <br><br> I fat you wait <br><br> If you know the did care <br><br> It's the sound of the story <br><br> All the time to start the find him like a light <br><br> To the dark <br><br> L'all feel that we were the strong <br><br> Another water <br><br> You know I'm handy street <br><br> I wanna shoke it <br><br> You know you want <br><br> I'm as a trips <br><br> Then your feeling in the whole thing with you <br><br> I'm dropping and I want me probley <br><br> Well, I'm fat, some words <br><br> She's a call of the day <br><br> You know I'm alone day <br><br> And not know <br><br> I'm the dide as the starter <br><br> When I wanna be there <br><br> But I'm fat, you want to see <br><br> It make you wart to was the her every casting the story <br><br> If you want for the suck <br><br> There's no discrop <br><br> That we've got down <br><br> L.A. peypic lide in the whole to the water <br><br> And I do it watch a little that I don't take a sitter <br><br> Every started <br><br> Then feel from <br><br> You got to do you <br><br> She's a p<br><br></td>
+            </tr>
+        </table>
+        <div>
+            <div style = "width: 10%"></div>
+        <img src="ML_Pictures/country-learning-curve.png" style="display: inline-block; margin: 3% auto 1%;">
+        <img src="ML_Pictures/hip-hop-learning-curve.png" style="display: inline-block; margin: 3% auto 1%;">
+        <img src="ML_Pictures/indie-learning-curve.png" style="display: inline-block; margin: 3% auto 1%;">
+        <img src="ML_Pictures/pop-learning-curve.png" style="display: inline-block; margin: 3% auto 1%;">
+        <img src="ML_Pictures/rock-learning-curve.png" style="display: inline-block; margin: 3% auto 1%;">
+        </div>
+        <footer class="footer" style="background-color:whitesmoke; height: 15%; bottom: 0; position: relative; width: 100%; padding-bottom: 1%;">
+            <div class="container">
+                <br>
+                <span class="text-muted" style = "padding-top: 20px">EECS 349: Machine Learning</span>
+                <br>
+                <span class="text-muted">June 2018</span>
+                <br>
+                <span class="text-muted">Sabreen Ali, Michael Benimovich, Stacey Chao, Charlie Collar</span>
+            </div>
+        </footer>
+    </body>
+</html>

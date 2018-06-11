@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Michael Benimovich</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+            .tg .tg-baqh{text-align:center;vertical-align:top}
+            .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+        </style>
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>     
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 10px">
+            <div class="container">
+
+            </div>
+            <a class="navbar-brand" href="#">The AI Artist</a>
+            <ul style="padding-top: 6px;" class = "nav nav-pills">
+
+                <li><a href="#MLProjectHome.html">Abstract</a></li>
+                <li><a href="data.html">Data</a></li>
+                <li><a href="class.html" class="active">Classifying Genres</a></li>
+                <li><a href="gen.html">Generating Song Lyrics</a></li>
+            </ul>
+
+        </nav>
+        <h1 style = "width: 80%; margin:20px auto 5% auto; text-align: center;"><b>Classifying Genres</b></h1>
+
+        <div class="main" style = "width: 80%; margin:auto; margin-top: 3%; padding-bottom: 20px;">
+
+            <p>&#09;We were aware that there would be problems with overfitting the data due to the massive amount we were able to collect, so we started with small samples and grew them until we were plateauing.  All classification models and filtering was done using Weka. We preprocessed the data by first eliminating all attributes besides genre and lyrics.  We decided our task should be focused on lyrics, and wanted to create a classifier that was forced to work with minimal amounts of data and work with instances where year, popularity, etc. were not provided.  We then eliminating all punctuation, leaving just alphanumeric characters.</p>
+
+            <p>&#09;We then used Weka’s StringToWordVector filter to create numeric attributes from our string data.  We adjusted some settings from the default, utilizing an IDF-TF transformation to get a better sense of word importance.  The attribute fields were limited to about 1000 attributes, and we used Weka’s built in Rainbow stopword handler. We analyzed three different classifications, Naïve Bayes, Random Forest, and Support Vector Classifier (Weka’s SMO).  We also used ZeroR and 1 Nearest Neighbor as control.  For each classifier, we trained on 70% of the data and tested on the other 30%.</p>
+
+            <p>&#09;Starting with just 100 instances, almost all the results were the same, and quite low.  When the dataset was around 300, we started to see more accurate results, as the ZeroR classifier started to plateau, thus was finally acting more as a control.  At this small dataset, Naïve Bayes was performing very well, with over 50% accuracy.  The other two classifiers were also performing well, with Random Forest at exactly 50% and SMO just under 50%.  300 and 600 were the only datasets were all three classifiers were performing better than ZeroR.</p>
+
+            <p>&#09;Once the dataset grew to be over 1,000, Naïve Bayes started to overfit, and its accuracy was continuously lower than ZeroR for every test greater than 1,000.  SMO also started to overfit, although not quite to the same degree as Naïve Bayes.  Interestingly, SMO started to do better again later on, when the dataset sizes grew to over 10,000, but Weka unfortunately did not have enough resources to run SMO on 20,000.</p>
+
+            <table class="tg" style= "margin: 0 auto 1%;">
+                <tr>
+                    <th class="tg-c3ow">Data Size</th>
+                    <th class="tg-baqh">ZeroR</th>
+                    <th class="tg-baqh">IBk</th>
+                    <th class="tg-baqh">Naive Bayes</th>
+                    <th class="tg-baqh">Random Forest</th>
+                    <th class="tg-baqh">SMO</th>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">100</td>
+                    <td class="tg-baqh">23.3333</td>
+                    <td class="tg-baqh">23.3333</td>
+                    <td class="tg-baqh">23.3333</td>
+                    <td class="tg-baqh">23.3333</td>
+                    <td class="tg-baqh">26.6667</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">200</td>
+                    <td class="tg-baqh">36.6667</td>
+                    <td class="tg-baqh">11.6667</td>
+                    <td class="tg-baqh">40.0000</td>
+                    <td class="tg-baqh">38.3333</td>
+                    <td class="tg-baqh">43.3333</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">300</td>
+                    <td class="tg-baqh">45.5556</td>
+                    <td class="tg-baqh">45.5556</td>
+                    <td class="tg-baqh">51.1111</td>
+                    <td class="tg-baqh">50.0000</td>
+                    <td class="tg-baqh">48.8889</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">600</td>
+                    <td class="tg-baqh">38.8889</td>
+                    <td class="tg-baqh">34.4444</td>
+                    <td class="tg-baqh">40.5556</td>
+                    <td class="tg-baqh">45.0000</td>
+                    <td class="tg-baqh">42.2222</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">1,000</td>
+                    <td class="tg-baqh">44.3333</td>
+                    <td class="tg-baqh">39.0000</td>
+                    <td class="tg-baqh">37.3333</td>
+                    <td class="tg-baqh">48.3333</td>
+                    <td class="tg-baqh">41.3333</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">1,500</td>
+                    <td class="tg-baqh">43.5556</td>
+                    <td class="tg-baqh">27.6667</td>
+                    <td class="tg-baqh">38.8889</td>
+                    <td class="tg-baqh">48.2222</td>
+                    <td class="tg-baqh">38.0000</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">2,000</td>
+                    <td class="tg-baqh">42.3756</td>
+                    <td class="tg-baqh">35.6667</td>
+                    <td class="tg-baqh">37.2392</td>
+                    <td class="tg-baqh">47.0305</td>
+                    <td class="tg-baqh">38.6667</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">3,000</td>
+                    <td class="tg-baqh">42.0000</td>
+                    <td class="tg-baqh">32.3333</td>
+                    <td class="tg-baqh">33.7778</td>
+                    <td class="tg-baqh">49.2222</td>
+                    <td class="tg-baqh">39.8889</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">5,000</td>
+                    <td class="tg-baqh">41.2000</td>
+                    <td class="tg-baqh">34.9333</td>
+                    <td class="tg-baqh">33.6000</td>
+                    <td class="tg-baqh">47.4667</td>
+                    <td class="tg-baqh">36.1333</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">10,000</td>
+                    <td class="tg-baqh">42.5000</td>
+                    <td class="tg-baqh">28.0333</td>
+                    <td class="tg-baqh">32.6333</td>
+                    <td class="tg-baqh">51.5333</td>
+                    <td class="tg-baqh">40.2333</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">20,000</td>
+                    <td class="tg-baqh">42.5333</td>
+                    <td class="tg-baqh">27.7000</td>
+                    <td class="tg-baqh">32.3167</td>
+                    <td class="tg-baqh">51.9667</td>
+                    <td class="tg-baqh">-----</td>
+                </tr>
+            </table>
+            <p style="font-size: 0.75em; font-style: italic; width: 30%; margin:auto;text-align: center;margin-bottom: 2%;">performance of classifiers (accuracy percentage) on varying dataset sizes</p>
+            <img src = "ML_Pictures/accuracy.png" style="width: 400px; height:250px; display: block; margin: 3% auto 1%;">
+            <p style="font-size: 0.75em; font-style: italic; width: 30%; margin:auto;text-align: center;margin-bottom: 2%;">performance of classifier methods on varying dataset sizes</p>
+            
+            <p>&#09;The only classifier that continued to do well was Random Forest, for a number of reasons.  The first is its resistance to overfitting.  Random Forests build an ensemble of smaller trees, then vote between the trees when classifying data.  This is particularly good for text classification, as representing the strings as word vectors creates a massive amount of attributes which can be incredibly noisey.</p>
+            
+            <p>&#09;It was surprising that all our classifiers failed to obtain much more than 50%; this is below what we were expecting.  This could be because the classification of genre by metrolyrics is not accurate, and we unfortunately have no way to ensure this accuracy.  However, this could also be due to songs not having as cliché of lyrics as expected, and perhaps the genres are not as different as we thought.  A better dataset is essential for future work, as it is uncertain if the poor results come from a bad dataset, or just the difficulty of the task.</p>
+            <br>
+
+        </div>
+        <footer class="footer" style="background-color:whitesmoke; height: 15%; bottom: 0; position: relative; width: 100%; padding-bottom: 1%;">
+            <div class="container">
+                <br>
+                <span class="text-muted" style = "padding-top: 20px">EECS 349: Machine Learning</span>
+                <br>
+                <span class="text-muted">June 2018</span>
+                <br>
+                <span class="text-muted">Sabreen Ali, Michael Benimovich, Stacey Chao, Charlie Collar</span>
+            </div>
+        </footer>
+    </body>
+</html>

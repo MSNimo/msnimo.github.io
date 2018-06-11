@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Michael Benimovich</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        
+        
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>     
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 10px">
+            <div class="container">
+
+            </div>
+            <a class="navbar-brand" href="#">The AI Artist</a>
+            <ul style="padding-top: 6px;" class = "nav nav-pills">
+
+                <li><a href="MLProjectHome.html">Abstract</a></li>
+                <li><a href="data.html" class="active">Data</a></li>
+                <li><a href="class.html">Classifying Genres</a></li>
+                <li><a href="gen.html">Generating Song Lyrics</a></li>
+            </ul>
+
+        </nav>
+        <h1 style = "width: 80%; margin:20px auto 0% auto; text-align: center;"><b>Our Dataset</b></h1>
+        
+        <div class="main" style = "width: 80%; margin:auto; margin-top: 3%; padding-bottom: 20px;">
+
+            <p>&#09;Data was scraped from metrolyrics.com.  A simple PHP scraper was created to first gather all the artists based on a list of artists metrolyrics offers.  Then, from each link to each artist, the lyrics to the top 65 songs (or fewer) of that artist were added to the dataset.  In total, we gathered over 400,000 songs.  In addition to taking the song lyrics and genre, we also took features for artist popularity (determined by metrolyrics when scraped on May 9th, 2018,) song title, artist, and year released.</p>	
+
+            <p>&#09;We then filtered our dataset.  We first eliminated songs from artists who were not popular, artists whose popularity was under 10 out of 100.  We also eliminated songs from the dataset that did not specify a genre or were labeled as “other,” as this genre label seemed to be a catch-all for songs that were either of niche genres, and we believed this would add unnecessary noise to our dataset, or possibly cause models to label an unusually high percentage of songs as “other.”</p>	
+
+            <p style="margin-bottom: 1%;">&#09;We still had some problems with the dataset.  The first issue was attempting to remove songs that were not entirely in English.  While we used the Python library “langdetect” made by Google to filter songs that were not in English, but this only filtered songs that had no English; many songs were half English and another language, and these were not filtered.  We were also concerned with the lack of different genre labels.  One of the reasons we chose metrolyrics over other popular lyrics websites was because of the diversity of labels, although it is not as diverse as we would have liked.</p>
+            <br>
+
+        </div>
+        <footer class="footer" style="background-color:whitesmoke; height: 15%; bottom: 0; position: absolute; width: 100%; padding-bottom: 1%;">
+            <div class="container">
+                <br>
+                <span class="text-muted" style = "padding-top: 20px">EECS 349: Machine Learning</span>
+                <br>
+                <span class="text-muted">June 2018</span>
+                <br>
+                <span class="text-muted">Sabreen Ali, Michael Benimovich, Stacey Chao, Charlie Collar</span>
+            </div>
+        </footer>
+    </body>
+</html>

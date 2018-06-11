@@ -41,12 +41,12 @@ HOME PAGE
 
 #left-title {
 
-    color: blue;
+    color: #CA5B54;
 }
 
 #right-title {
 
-    color: red;
+    color: #4579B2;
 }
 
 /**********************
@@ -62,6 +62,7 @@ LEARN MORE PAGE
 
 
     width: 100%;
+    z-index: 1;
 }
 
 .navbar-brand {
@@ -95,7 +96,7 @@ LEARN MORE PAGE
 @media only screen and (min-width: 500px) {
     .band {
         grid-template-columns: 1fr 1fr;
-    }  
+    }
 }
 
 @media only screen and (min-width: 850px) {
@@ -104,24 +105,28 @@ LEARN MORE PAGE
     }
 }
 
-.card {
+.navbar-brand b{
+  color: black;
+}
+
+.customcard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: auto;
     text-align: center;
 }
 
-.card-title {
+.customcard-title {
     font-size: 150%;
     margin: 2% 0;
 }
 
-.card-subtitle {
+.customcard-subtitle {
     color: grey;
     font-size: 1.5em;
-}   
+}
 
-.card-btn {
+.customcard-btn {
     border: none;
     outline: 0;
     display: inline-block;
@@ -133,7 +138,7 @@ LEARN MORE PAGE
     width: 100%;
 }
 
-.card-icon {
+.customcardicon {
     text-decoration: none;
     font-size: 22px;
     color: black;
@@ -148,7 +153,7 @@ LEARN MORE PAGE
 
     font-size: 1.25em;
 }
-.card-btn:hover, a:hover {
+.customcard-btn:hover, a:hover {
     opacity: 0.7;
 }
 
@@ -169,7 +174,7 @@ CANDIDATE PAGES
     padding-top: 1%;
     padding-bottom: 1%;
     width: 60%;
-    margin: auto;    
+    margin: auto;
 }
 
 .candidate-info {
@@ -182,6 +187,7 @@ CANDIDATE PAGES
 .candidate-img {
 
     width: 40%;
+    margin-right: 10px;
 }
 
 .candidate-img img{
@@ -192,8 +198,8 @@ CANDIDATE PAGES
 
 .candidate-twitter {
 
-    width: 50%;
-    margin-left: 5%;
+    width: 45%;
+    margin-left: 6%;
 }
 
 @media only screen and (max-width: 490px) {
@@ -251,7 +257,8 @@ CANDIDATE PAGES
 
     .candidate-twitter {
 
-        float: left;
+        float: right;
+
     }
 }
 
@@ -277,4 +284,157 @@ iframe {
     iframe {
         height: 360px;
     }
+}
+
+/**********************
+MATCHME
+**********************/
+
+#content-matchme {
+
+    padding-top: 5%;
+    text-align: center-left;
+    width: 80%;
+    margin: auto;
+}
+
+.question {
+
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 25px;
+}
+
+#matchme-loader {
+    padding-top: 15%;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+}
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    top: 50%;
+    left: 50%;
+    height: 120px;
+    margin: auto;
+    align-content: center;
+
+
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/**********************
+MATCHRESULTS
+**********************/
+
+#results-page-wrapper {
+  /* padding-top: 67px; */
+  padding: 10% 20% 0 20%;
+
+}
+#results-header {
+  text-align: left-center;
+}
+
+.color-note {
+  text-align: left;
+}
+#results-wrapper {
+  width: 60%
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5% 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.result-customcard {
+  max-width: 1100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+#duckworth-result .result-percent{
+  /* background-color: #4579B2; */
+  color: #4579B2;
+  top: 20%;
+}
+
+#kirk-result .result-percent{
+  /* background-color: #CA5B54; */
+  color: #CA5B54;
+  top: 20%;
+}
+
+#schawosky-result .result-percent{
+  /* background-color: #4579B2; */
+  color: #4579B2;
+  top: 20%;
+}
+
+#lasonde-result .result-percent{
+  /* background-color: #CA5B54; */
+  color: #CA5B54;
+  top: 20%;
+}
+.result-info {
+  display: inline-block;
+  position: relative;
+  padding-left: 2%;
+  top: 15%;
+}
+
+.result-title {
+  font-size: 150%;
+  color: black;
+}
+.result-sub {
+  color: black;
+  font-size: 1.5em;
+}
+.result-party {
+  font-size: 1.25em;
+  color: black;
+}
+.result-percent {
+  position: relative;
+  font-size: 4.5em;
+  display: inline;
+  float: right;
+  padding-right: 2%;
+  padding-top: 5%;
+  color: black;
+}
+
+.result-btn-cnt {
+ display: inline-block;
+}
+
+
+/* Filter */
+.customcard {
+  transition: all 0.5s ease;
+}
+
+#content-learnmore select{
+  margin-top: 7.5%;
+  width: 17.5%;
+  display: inline-block;
+  height: 40px;
 }
