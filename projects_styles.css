@@ -1,0 +1,24 @@
+a {
+    color:red; 
+    background-color:transparent;
+    text-decoration:none;
+}
+
+html {
+    min-width: 550px;
+    overflow: auto;
+}
+
+body {
+    background-color:whitesmoke;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: 5%;
+}
+.name {
+    padding: 1% 0 0 2%;
+}
+
