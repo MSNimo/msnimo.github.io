@@ -127,3 +127,18 @@ body { font-family: sans-serif; }
 .grid-item:hover>a>span {
     visibility: visible;   
 }
+
+/********************/
+/***    Footer    ***/
+/********************/
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #cccccc;
+  color: black;
+  text-align: center;
+  font-style: italic;
+}
