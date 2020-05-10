@@ -1,26 +1,60 @@
-a {
-    color:red; 
-    background-color:transparent;
-    text-decoration:none;
-}
-
 html {
     min-width: 550px;
     overflow: auto;
 }
-
+/********************/
+/***    Header    ***/
+/********************/
 body {
     background-color:whitesmoke;
+    padding: 0 1%;
 }
 
-.header {
+#returnlink {
+    background-color:transparent;
+    text-decoration:none;
+    font-style:normal;
+    color: black;
+}
+
+.mainheader {
     width: 100%;
     height: 5%;
 }
 .name {
-    padding: 0.25% 0 0 1%;
+    padding: 0.05% 0 0.05% 0;
+    margin: 0.05% 0 0.05% 0;
+    font-size: 300%;
 }
 
+#period {
+    color: red;
+    font-size: 150%;
+}
+
+/********************/
+/***   Buttons    ***/
+/********************/
+
+.btn {
+    color: red;
+    font-weight: bold; 
+    border-color: black;
+    border-width: 2px;
+    margin: 0 1px 5% 1px;
+}
+
+.btn-first {
+    border-width: 2px 2px 2px 4px;
+}
+
+.btn-last {
+    border-width: 2px 4px 2px 2px;
+}
+
+.btn-group>.active {
+    background-color: #cccccc;
+}
 /********************/
 /*** Masonry Grid ***/
 /********************/
@@ -32,7 +66,7 @@ html { overflow-y: scroll; }
 body { font-family: sans-serif; }
 
 .grid {
-    background: #DDD;
+    background:whitesmoke;
   }
   
 /* clear fix */
@@ -53,8 +87,43 @@ body { font-family: sans-serif; }
     float: left;
 }
 
-.grid-item img {
+.grid-item>a>img {
     display: block;
     max-width: 100%;
 }
-  
+
+.grid-item>a>span {
+    visibility: hidden;
+    position:absolute;
+    left:0;
+    text-shadow:0 0 10px rgba(#000, 0.4);
+    text-align: center;
+    color: black;
+    opacity: 1;
+    z-index:1;
+}
+
+.grid-item>a>span.header {
+    top:30%;
+    width:100%;
+    font-size: 110%;
+    font-weight: bold;
+}
+.grid-item>a>span.subheader {
+    top:40%;
+    width: 100%;
+    font-style: italic;
+}
+.grid-item>a>span.description {
+    top:50%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.grid-item:hover>a>img {
+    opacity: 0.05;
+}
+
+.grid-item:hover>a>span {
+    visibility: visible;   
+}
