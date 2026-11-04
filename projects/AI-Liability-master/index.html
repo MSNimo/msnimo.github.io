@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <!--ajax-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <title>LANA</title>
+
+    <!-- Required Stylesheets -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+
+    <!-- Required scripts -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+</head>
+
+<style>
+
+    #logo {
+        float: right;
+        padding-right: 2%;
+    }
+
+    #main-div {
+
+        padding: 0 2.5%;
+    }
+    #tree-card {
+        max-width: 100%;
+    }
+
+    .choices-text-q {
+        margin: 0;
+        float: left;
+        width: 100%;
+        text-align: left;
+    }
+
+    .choices-text {
+        float: left;
+        width: 100%;
+        text-align: left;
+    }
+
+    .mb-6 {
+        margin: 0 auto;
+        float: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        max-width: 50rem;
+        text-align: left;
+    }
+
+    .mb-5 {
+        margin: 0 auto;
+        float: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        max-width: 50rem;
+        text-align: center;
+    }
+
+    .button-container {
+        display: block;
+    }
+
+    .decision-tree-option {
+        margin: 0 auto;
+        float: both;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 75%;
+
+    }
+
+    .decision-tree-back {
+        margin: 0 auto;
+        float: both;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 75%;
+        background-color: #4DA7DB;
+    }
+
+    .decision-tree-option {
+        background-color: #105485;
+    }
+
+    .choices-text-a>span>.ui-tooltip>span {
+
+        color: red;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    .decision-tree-option>span>.ui-tooltip>span {
+        
+        color:lightcoral;
+        font-style: italic; 
+        font-weight: bold;
+    }
+
+    .jumbotron {
+        background-image: url(‘images\photo-1518640467707-6811f4a6ab73.jpg’) no-repeat !important;
+        background-color: #105485 !important;
+        background-size: cover;
+        padding: 10px;
+        margin: auto;
+    }
+
+    .jumbotronHR {
+        border-color: white;
+        margin-top: 16px !important;
+        margin-bottom: 16px !important;
+    }
+
+    #info-button {
+        clear: left;
+        margin-top: 10px;
+    }
+
+    #boxes {
+        padding-bottom: 10%;
+    }
+
+    #footer-text {
+
+        align-content: center;
+        background: #105485;
+        background-color:#105485;
+        display: table;
+        position: fixed;
+        width: 100%;
+        bottom: 0px;
+        left: 0;
+        padding: 0 5%;
+    }
+
+    #disclaimer {
+       
+        text-align: center;
+        display: table-cell;
+        font-size: 10px;
+        color: white;
+        margin: 12.5%;
+        padding: 15px 0;
+        
+        /* margin-right: 20px !important;
+        margin-left: 20px !important;
+        padding-right: 20px !important;
+        padding-left: 20px !important; */
+    }
+
+    html {
+        height: 100%;
+    }
+
+    body {
+        font-family: 'Helvetica', sans-serif !important;
+    }
+</style>
+
+<body>
+
+    <!-- Our application root element -->
+    <div id="app">
+        
+        <b-jumbotron class="jumbotron" text-variant="white" border-variant="dark">
+
+                <template slot="header" href="https://msnimo.com/AI-Liability/">
+                    <div>
+                        <b-img id="logo" src="images\logo_color.jpg" right height="25" alt="Mayer Brown Logo" />
+                    </div>
+                    LANA
+                </template>
+
+                <div style="margin-bottom: 0px;">
+                    <p class="h5">Liability for Artificial Networks Assistant</p>
+                    <hr class="jumbotronHR" />
+                    <p class="h6"> Artificial Intelligence sanctions screening system. </p>
+                </div>
+        </b-jumbotron>
+        <b-container-fluid>
+            <div id = "main-div">
+                <!--button for modal-->
+                <b-button center id="info-button" v-b-modal="'contactInfo'">Need Additional Info?</b-button>
+                <b-row id = "boxes">
+                    <b-col>
+                        <b-card id="tree-card" :title="myJson.question" class="mb-5">
+                            <b-container class="button-container" v-for="answer in myJson.children">
+                                <b-row v-if="answer.question != null">
+                                    <b-btn @click='addPath(myJson); counter = count(suggestions);lastFew = last_few(suggestions,myJson);' v-on:click="myJson=answer" class="decision-tree-option"><span v-html="answer.label"></span></b-btn>
+                                </b-row>
+                                <b-row  v-if="answer.question == null">
+                                    <p class="text-justify"><span v-html="answer.label"></span></p>
+                                </b-row>
+                            </b-container>
+
+                            <b-container class="button-container" v-if="myJson.label != null">
+                                <b-row>
+                                    <b-btn @click='myJson = removePath(); counter = count(suggestions);lastFew = last_few(suggestions,myJson);' v-on:click="" class="decision-tree-back">Back</b-btn>
+                                </b-row>
+                            </b-container>
+                        </b-card>
+                    </b-col>
+                    <b-col>
+                        <b-card id="desc-card" title="Past Choices" class="mb-6" v-if="myJson.label != null">
+                            <b-container class="button-container">
+                                <b-row v-for="selected in track">
+                                    <p class="choices-text-a"><span v-html="selected.label"></span></p>
+                                    <b-link @click='myJson = JumpBackPathQ(selected.question)' class="font-weight-bold choices-text-q"><span v-html="selected.question"></span></b-link>
+
+                                </b-row>
+                                <b-row>
+                                    <p class="choices-text-a"> <span v-html="myJson.label"></span></p>
+                                    <p class="font-weight-bold choices-text-q"> <span v-html="myJson.question"></span></p>
+                                </b-row>
+                            </b-container>
+                        </b-card>
+                    </b-col>
+                    <b-col>
+                        <b-card id="suggestion-card" title="Current Suggestions" class="mb-6"v-if="(counter > 0) || (myJson.suggestion != null)">
+
+                            <b-container class="button-container">
+                                <b-row>
+                                    <p class="choices-text-a" v-if="myJson.suggestion != null"><b><span v-html="myJson.suggestion"></span></b></p>
+                                </b-row>
+                                <hr size="30">
+                                <ul>
+                                    <b-row v-for="each in lastFew">
+                                        <p class="choices-text-a" v-if="each != null"><li><span v-html="each"></span></li></p>
+                                    </b-row>
+                                </ul>
+                                       
+                            </b-container>
+                        </b-card>
+                    </b-col>
+                </b-row>
+
+            </div>
+            <!--modal for contant info-->
+            <b-modal ref="contactInfoRef" id="contactInfo" size="md" title="Contact Info" ok-only>
+                <b-container fluid>
+                    <!--TODO ADD INFO HERE -->
+                    Please email us at sample@email.com for futher assistance.
+                </b-container>
+            </b-modal>
+            <div id="footer-text">
+            <p id="disclaimer">Responsibility or liability for the accuracy of the information gleamed from LANA and any 
+                    advice given by the program is not the responsibility of LANA or any of its creators or operators or anyone 
+                    else associated with LANA. The advise arising from LANA does not constitute legal advice.
+            </p>
+        </div>
+        </b-container-fluid>
+    </div>
+
+    <!-- Start running your app -->
+    <script> 
+        window.app = new Vue({
+            el: "#app",
+            data: {
+                name: '',
+                myJson: [],
+                track: [],
+                suggestions: [],
+                lastFew: [],
+                counter: 0
+            },
+            methods: {
+                count(array) {
+                    temp = 0 
+                    for (element in array) {
+                        if (array[element] != null) temp ++;
+                    }
+                    return temp;
+                },
+                last_few(array, json) {
+                    limit = 0;
+                    console.log(json.suggestion)
+                    if (json.suggestion != null) limit = 2;
+                    else limit = 3;
+
+                    rev = array.slice().reverse();
+                    i = 0;
+                    l2rev = [];
+
+                    for (element in array){
+                        if (rev[element] != null) {
+                            l2rev.push(rev[element]);
+                                if (rev[element] == json.suggestion) limit ++;
+                                i++;
+                        }
+                        if (i == limit) break;
+                    }
+                    return l2rev.slice().reverse();
+                },
+                addPath(json) {
+                    this.track.push(json);
+                    this.suggestions.push(json.suggestion);
+
+                },
+                removePath() {
+                    this.suggestions.pop();
+                    return this.track.pop();
+                },
+                JumpBackPathQ(target) {
+
+                    len = this.track.length;
+                    spot = -1;
+                    for (i = 0; i < len; i++) {
+                        if (this.track[i].question == target) spot = i;
+                    }
+
+                    if (spot == -1) return myJson;
+
+                    diff = len - spot;
+
+                    for (j = 0; j < diff - 1; j++) this.track.pop();
+
+                    return this.track.pop();
+                },
+
+                JumpBackPathA(target) {
+
+                    len = this.track.length;
+                    spot = -1;
+                    for (i = 0; i < len; i++) {
+                        if (this.track[i].label == target) spot = i;
+                    }
+
+                    if (spot == -1) return myJson;
+
+                    diff = len - spot;
+
+                    for (j = 0; j < diff; j++) this.track.pop();
+
+                    return this.track.pop();
+                },
+
+
+
+            },
+            computed: {
+                showAlert() {
+                    return this.name.length > 4 ? true : false;
+                }
+            }
+
+        });
+        $.getJSON('https://msnimo.com/AI-Liability/data/decision-tree.json', function (json) {
+            app.myJson = json;
+        });
+    </script>
+
+</body>
+
+</html>

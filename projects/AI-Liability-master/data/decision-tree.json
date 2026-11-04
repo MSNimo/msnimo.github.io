@@ -1,0 +1,211 @@
+{
+            "label": null,
+            "suggestion": null,
+            "question": "What is the nature of the task?",
+            "children": [{
+                "label": "<a class='ui-tooltip' title='Examples: Fraud Detection, Anti-Money Laundering, Client Assessment, Hiring, or Medical Diagnosis'><span style='cursor: help;'>Assessment or Identification</span></a>",
+                "suggestion": null,
+                "question": "Is the task in a regulated industry or field?",
+                "children": [{
+                    "label": "Yes",
+                    "suggestion": "Meet with your compliance officer to understand which laws govern the field you are working in.",
+                    "question": "Is there a possibility of property/ financial loss or physical harm?",
+                    "children": [{
+                        "label": "Yes",
+                        "suggestion": "Perform a validity check by randomly sampling a portion of your data (e.g., input and/or training data) and manually checking its correctness.",
+                        "question": "Are there any regulations associated with the task that require auditing or justification of decision?",
+                        "children": [{
+                            "label": "Yes",
+                            "suggestion": "Document and make available an API that allows third parties to query the algorithmic system and assess its response. Make sure that if data is needed to properly audit your algorithm, that sample (e.g., training) data is made available.",
+                            "question": "Did you design your AI to be a Rule Driven System or a System Learning from Data?",
+                            "children": [{
+                                "label": "Under Rule Driven System",
+                                "suggestion": null,
+                                "question": "Are the program rules currently followed by employees of your business?",
+                                "children": [{
+                                    "label": "Yes",
+                                    "suggestion": null,
+                                    "question": "Can the rules be changed by developers or administrators?",
+                                    "children": null
+                                },
+                                {
+                                    "label": "No",
+                                    "suggestion": "Find the differences between the AI system’s rules and your employees and minimize the differences.",
+                                    "question": "Can the rules be changed by developers or administrators?",
+                                    "children": [{
+                                        "label": "Yes",
+                                        "suggestion": "Speak to your programmer to disallow developers and administrators access to rule making software without a decision making process for making those changes.",
+                                        "question": "Is there a decision making process for making those changes?",
+                                        "children": [{
+                                            "label": "Yes",
+                                            "suggestion": "Incorporate these decision making processes into the AI system.",
+                                            "question": "Is there statistical validation against sub-sets of data associated with the task in the past?",
+                                            "children": [{
+                                                "label": "Yes",
+                                                "suggestion": null,
+                                                "question": "Are there human validation of samples runs? ",
+                                                "children": null
+                                            },
+                                            {
+                                                "label": "No",
+                                                "suggestion": "Incorporate statistical validation against sub-sets of data associated with the task.",
+                                                "question": "Are there human validation of samples runs? ",
+                                                "children": [{
+                                                    "label": "Yes",
+                                                    "suggestion": null,
+                                                    "question": "Is there an analysis of the core algorithms to determine validity?",
+                                                    "children": null
+                                                },
+                                                {
+                                                    "label": "No",
+                                                    "suggestion": "Assign one employee or team to randomly sample AI system’s outputs.",
+                                                    "question": "Is there an analysis of the core algorithms to determine validity?",
+                                                    "children": [{
+                                                        "label": "Yes",
+                                                        "suggestion": null,
+                                                        "question": "Will it be able to provide an explanation of the reasoning that led to its answers and the measure of certainty?",
+                                                        "children": null
+                                                    },
+                                                    {
+                                                        "label": "No",
+                                                        "suggestion": "Meet with programmer to design an analysis of the core algorithms to determine validity.",
+                                                        "question": "Will it be able to provide an explanation of the reasoning that led to its answers and the measure of certainty?",
+                                                        "children": [{
+                                                            "label": "Yes",
+                                                            "suggestion": null,
+                                                            "question": "Will it be able to provide a trace of its reasoning?",
+                                                            "children": null
+                                                        },
+                                                        {
+                                                            "label": "No",
+                                                            "suggestion": "Allow data subjects visibility into the data you store about them and access to a process in order to change it.",
+                                                            "question": "Will it be able to provide a trace of its reasoning?",
+                                                            "children": [{
+                                                                "label": "Yes",
+                                                                "suggestion": null,
+                                                                "question": "Will it be able to point to data sources that provide a sense of authority with regard to its answers?",
+                                                                "children": null
+                                                            },
+                                                            {
+                                                                "label": "No",
+                                                                "suggestion": "Have a plan for how decisions will be explained to users and subjects of those decisions. In some cases it may be appropriate to develop an automated explanation for each decision.",
+                                                                "question": "Will it be able to point to data sources that provide a sense of authority with regard to its answers?",
+                                                                "children": [{
+                                                                    "label": "Yes",
+                                                                    "suggestion": null,
+                                                                    "question": "Will users be able to manipulate any of the features that participated in a decision?",
+                                                                    "children": null
+                                                                },
+                                                                {
+                                                                    "label": "No",
+                                                                    "suggestion": "Disclose the sources of any data used and as much as possible about the specific attributes of the data. Explain how the data was cleaned or otherwise transformed.",
+                                                                    "question": "Will users be able to manipulate any of the features that participated in a decision?",
+                                                                    "children": [{
+                                                                        "label": "Yes",
+                                                                        "suggestion": "Consider asking programmer to make the AI as independent as possible.",
+                                                                        "question": "Is the system going to be built to be used in coordination with a user or as a stand-alone tool?",
+                                                                        "children": [{
+                                                                            "label": "In coordination with a user",
+                                                                            "suggestion": "Consider asking programmer to make the AI as independent as possible.",
+                                                                            "question": "Given your inputs, these are the steps you can take to mitigate risk:",
+                                                                            "children": [{
+                                                                                "label": "<ul><li>Meet with your compliance officer to understand which laws govern the field you are working in.</li><li>Perform a validity check by randomly sampling a portion of your data (e.g., input and/or training data) and manually checking its correctness.</li><li>Document and make available an API that allows third parties to query the algorithmic system and assess its response. Make sure that if data is needed to properly audit your algorithm, that sample (e.g., training) data is made available.</li><li>Find the differences between the AI system’s rules and your employees and minimize the differences.</li><li>Speak to your programmer to disallow developers and administrators access to rule making software without a decision making process for making those changes.</li><li>Incorporate these decision making processes into the AI system.</li><li>Incorporate statistical validation against sub-sets of data associated with the task.</li><li>Assign one employee or team to randomly sample AI system’s outputs.</li><li>Meet with programmer to design an analysis of the core algorithms to determine validity.</li><li>Allow data subjects visibility into the data you store about them and access to a process in order to change it.</li><li>Have a plan for how decisions will be explained to users and subjects of those decisions. In some cases it may be appropriate to develop an automated explanation for each decision.</li><li>Disclose the sources of any data used and as much as possible about the specific attributes of the data. Explain how the data was cleaned or otherwise transformed.</li><li>Consider restricting user access to not manipulate features of AI decision process.</li><li>Consider asking programmer to make the AI as independent as possible.</li></ul>",
+                                                                                "suggestion": null,
+                                                                                "question": null,
+                                                                                "children": null
+                                                                            }]
+                                                                        },
+                                                                        {
+                                                                            "label": "Stand-alone tool",
+                                                                            "suggestion": null,
+                                                                            "question": "null",
+                                                                            "children": null
+                                                                        }]
+                                                                    },
+                                                                    {
+                                                                        "label": "No",
+                                                                        "suggestion": null,
+                                                                        "question": "Is the system going to be built to be used in coordination with a user or as a stand-alone tool?",
+                                                                        "children": null
+                                                                    }]
+                                                                }]
+                                                            }]
+                                                        }]
+                                                    }]
+                                                }]
+                                            }]
+                                        },{
+                                            "label": "No",
+                                            "suggestion": "Develop a decision making process that the AI system must follow.",
+                                            "question": "Is there statistical validation against sub-sets of data associated with the task in the past?",
+                                            "children": null
+                                        }]
+                                    },
+                                    {
+                                        "label": "No",
+                                        "suggestion": null,
+                                        "question": "Is there a decision making process for making those changes?",
+                                        "children": null
+                                    }]
+                                }]
+                            },
+                            {
+                                "label": "Under System Learning From Data",
+                                "suggestion": null,
+                                "question": "Are the data the product of past interactions within the organization or from a source that has some authority associated with it?",
+                                "children": null
+                            }]
+                        },
+                        {
+                            "label": "No",
+                            "suggestion": null,
+                            "question": "Did you design your AI to be a Rule Driven System or a System Learning from Data?",
+                            "children": null
+                        }]
+                    },
+                    {
+                        "label": "No",
+                        "suggestion": null,
+                        "question": "Are there any regulations associated with the task that require auditing or justification of decision?",
+                        "children": null
+                    }]
+                },
+                {
+                    "label": "No",
+                    "suggestion": null,
+                    "question": "Is there a possibility of property/ financial loss or physical harm?",
+                    "children": null
+                }]
+            },
+            {
+                "label": "<a class='ui-tooltip' title='Examples: Credit Assessment, Customer Churn, Employee Churn, Crime, Accident Prediction, Recidivism.'><span style='cursor: help;'>Prediction</span></a>",
+                "suggestion": null,
+                "question": "Is the task in a regulated industry or field?",
+                "children": null
+            },
+            {
+                "label": "<a class='ui-tooltip' title=' Examples: Financial Planning, Medical Advice, Fitness, Dating.'><span style='cursor: help;'>Advisory</span></a>",
+                "suggestion": null,
+                "question": "Is the task in a regulated industry or field?",
+                "children": null
+            },
+            {
+                "label": "<a class='ui-tooltip' title='Examples: Product recommendation, advertising services, job recommendations.'><span style='cursor: help;'>Recommendation</span></a>",
+                "suggestion": null,
+                "question": "Is the task in a regulated industry or field?",
+                "children": null
+            },
+            {
+                "label": "<a class='ui-tooltip' title='Examples: Automated trading, self-driving cars, medical prescriptions, loan approval, customer response.'><span style='cursor: help;'>Decision Making</span></a>",
+                "suggestion": null,
+                "question": "Is the task in a regulated industry or field?",
+                "children": null
+            },
+            {
+                "label": "<a class='ui-tooltip' title='Examples: Help lines, advisory systems, transactional systems.'><span style='cursor: help;'>Conversational access to information or task</span></a>",
+                "suggestion": null,
+                "question": "Is the task in a regulated industry or field?",
+                "children": null
+            }
+            ]
+    }
